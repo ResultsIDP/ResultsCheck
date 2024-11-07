@@ -10,10 +10,12 @@
 </head>
 <body>
   <div class="logo"><img src="idp_ielts_logo.png.svg" alt=""></div>
+  <br>
+  <br>
   <div class="container">
 
     <div class="back-link">
-      <a href="index.html">&#8592; Back to results</a>
+      <a href="page2.html">&#8592; Back to results</a>
     </div>
     <h1>IELTS Academic</h1>
     <div class="details">
@@ -27,6 +29,8 @@
     <span class="warningcircle">ℹ️  ⠀⠀⠀⠀⠀⠀</span>
       <p style="font-size: 14px;"><strong style="font-size: 18px;">About this result</strong><br>Your results available online are not official. They are provisional only until you receive your official Test Report Form (TRF).</p>
     </div>
+  </div>
+  <div class="mainContainer">
     <div class="scores">
       <div class="score" id="SpeakingScoreSection">
         <div class="ScoreIndicator">
@@ -82,7 +86,7 @@
     <div class="score-explanation">
 
       <div class="ExtraOpportunities">
-        <p style="font-size: 24px;line-height: 30px;">
+        <p style="font-size: 24px;line-height: 30px; font-family: Roboto; font-weight: 700;">
           More options for this test
         </p>
         <div class="extrabox">
@@ -182,6 +186,11 @@
   <a href="#">Cookie policy</a>
   <div>&copy; Copyright 2024 IDP IELTS</div>
 </div>
+<div id="loading">
+  <div class="spinner"></div>
+</div>
+
+<div id="content" style="display: none;"></div>
   <style>
     *{
   margin: 0;
@@ -191,7 +200,7 @@
 }
 
 body {
-  background-color: #f8f9fa;
+  background-color: #f5f5f5;
   justify-content: center;
   align-items: center;
   height: 220vh;
@@ -199,21 +208,37 @@ body {
 .logo{
   width: 100%;
   height: 50px;
-  background: #f5f5f5;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: sticky;
+  top: 0px;
+  z-index: 3;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.552);
+}
+.logo img{
+  width: 100px;
 }
 .container {
   width: 60%;
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 7px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 30px;
   text-align: left;
   margin: 0 auto;
-}
+  border: 1px solid rgba(128, 128, 128, 0.274);
 
+}
+.mainContainer{
+  width: 100%;
+  background-color: #f5F5f5;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: left;
+  margin: 0 auto;
+}
 .back-link {
   margin-bottom: 20px;
 }
@@ -272,7 +297,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
-  gap: 10px;
+  gap: 5px;
 }
 
 .score, .overall-score {
@@ -673,7 +698,7 @@ h1 {
 
   .score, .overall-score {
     width: 100%;
-    height: 80px;
+    height: 89px;
     margin-bottom: 10px;
     background: white;
     border: 1px;
@@ -684,7 +709,33 @@ h1 {
   }
 }
 
+#loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.9);
+      z-index: 1000;
+    }
 
+    /* Стиль анимации спиннера */
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-top-color: #ff0000;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 0.8s linear infinite;
+    }
+
+    /* Ключевые кадры для анимации */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
   </style>
   <script>
 
@@ -720,6 +771,12 @@ function getUrlParam(param) {
       window.location.href = "explanationO.html"
     })
 
+    window.addEventListener("load", function () {
+  setTimeout(function() {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  }, 2000); // 2 секунды задержки
+});
   </script>
 </body>
 </html>
