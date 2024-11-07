@@ -8,12 +8,7 @@
     /* Reset */
     * {
       margin: 0;
-      padding: 5px;
       box-sizing: border-box;
-      -webkit-user-select: none; /* Chrome/Safari */
-      -moz-user-select: none; /* Firefox */
-      -ms-user-select: none; /* IE/Edge */
-       user-select: none; /* Стандартный синтаксис */
     }
 
     /* Body Styling */
@@ -21,6 +16,8 @@
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       justify-content: center;
+      margin: 0;
+      padding: 0;
     }
     .status{
         height: 100%;
@@ -37,6 +34,7 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       padding: 2em;
       margin: 0 auto;
+      display: none;
     }
 
     /* Header */
@@ -155,13 +153,134 @@
       justify-content: center;
       margin: 0px;
       padding: 0px;
+      position: sticky;
+      top: 0;
     }
+    .logo img{
+      width: 120px;
+    }
+    #loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.9);
+      z-index: 1000;
+    }
+
+    /* Стиль анимации спиннера */
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-top-color: #ff0000;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 0.8s linear infinite;
+    }
+
+    /* Ключевые кадры для анимации */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .footer-container {
+            width: 100%;
+            background-color: #1e1e2e;
+            padding: 20px;
+            color: #ffffff;
+            display: none;
+        }
+        .footer-nav {
+            display: flex;
+            border-bottom: 1px solid #3a3a4d;
+            margin-bottom: 15px;
+        }
+        .footer-nav div {
+            padding: 10px;
+            color: #b0b0c3;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .footer-nav div.active {
+            color: #ffffff;
+            border-bottom: 2px solid #d21f3c;
+        }
+        .footer-links {
+            margin: 15px 0;
+        }
+        .footer-links a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .footer-social {
+            margin: 15px 0;
+        }
+        .footer-social h4 {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .footer-social-icons img {
+            width: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .footer-global {
+            margin: 15px 0;
+        }
+        .footer-global h4 , a{
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: white;
+        }
+        .footer-logos {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #0f0f1f;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        .footer-logos img {
+            width: 70px;
+        }
+        .footer-text {
+            font-size: 12px;
+            color: #b0b0c3;
+            text-align: center;
+            line-height: 1.5;
+            margin: 15px 0;
+        }
+        .footer-bottom-links {
+            font-size: 12px;
+            text-align: center;
+            color: #b0b0c3;
+        }
+        .footer-bottom-links a {
+            color: #b0b0c3;
+            text-decoration: none;
+            margin: 5px 0;
+            display: block;
+        }
   </style>
 </head>
 <body>
+
+
+
   <div class="logo"><img src="idp_ielts_logo.png.svg" alt=""></div>
 
-<div class="container">
+  <div id="loading">
+    <div class="spinner"></div>
+  </div>
+  <div id="content" style="display: none;"></div>
+
+<div class="container" id="Container">
   <!-- Back Link -->
   <a href="index.html" style="color: rgb(55, 55, 196); font-family:sans-serif ;" class="back-link">&lt; Go back</a>
 
@@ -202,6 +321,61 @@
     <div class="faq-item">When will I get IELTS sertififcate ? <i>▼</i></div>
   </div>
 </div>
+<br>
+<div class="footer-container" id="c2">
+  <!-- Navigation Links -->
+  <div class="footer-nav">
+    <div class="active">Useful links</div>
+    <div>Featured</div>
+    <div>Need help?</div>
+  </div>
+  
+  <!-- Useful Links -->
+  <div class="footer-links">
+    <a href="#">Who accepts IELTS?</a>
+    <a href="#">News and articles</a>
+    <a href="#">IELTS Masterclass</a>
+    <a href="#">Your IELTS results</a>
+  </div>
+  
+  <!-- Social Links -->
+  <div class="footer-social">
+    <h4>IDP IELTS</h4>
+    <div class="footer-social-icons">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook.png" alt="Facebook">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="YouTube">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" alt="TikTok">
+    </div>
+  </div>
+  
+  <!-- Global Links -->
+  <div class="footer-global">
+    <h4>Website</h4>
+    <a href="#">Global</a>
+  </div>
+  
+  <!-- Logos -->
+  <div class="footer-logos">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/BritishCouncil_Logo.png" alt="British Council">
+    <img src="idp_ielts_logo.png.svg" alt="IDP">
+    <img src="https://download.logo.wine/logo/University_of_Cambridge/University_of_Cambridge-Logo.wine.png" alt="Cambridge">
+  </div>
+  
+  <!-- Footer Text -->
+  <div class="footer-text">
+    IELTS is jointly owned by the British Council; IDP IELTS; and Cambridge University Press & Assessment
+  </div>
+  
+  <!-- Bottom Links -->
+  <div class="footer-bottom-links">
+    <a href="#">Contact us</a>
+    <a href="#">Legal notices</a>
+    <a href="#">Privacy policy</a>
+    <a href="#">Cookie policy</a>
+    <div>&copy; Copyright 2024 IDP IELTS</div>
+  </div>
+
 <script>
   // Function to get URL parameters
   function getUrlParam(param) {
@@ -218,6 +392,17 @@
       const givenName = document.getElementById('userName').innerHTML;
       window.location.href = `page3.html?name=${encodeURIComponent(givenName)}`;
   });
+
+  window.addEventListener("load", function () {
+  setTimeout(function() {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("content").style.display = "block";
+    document.getElementById("Container").style.display = "block"
+    document.getElementById("c2").style.display = "block"
+  }, 1000); // 2 секунды задержки
+});
 </script>
+
+
 </body>
 </html>
